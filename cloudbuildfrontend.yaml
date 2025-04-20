@@ -11,7 +11,7 @@ steps:
         else
           echo "Skipping npm install, node_modules exists."
         fi
-    dir: "notes_fe"
+    dir: "frontend"
     volumes:
       - name: "npm-cache"
         path: /root/.npm
