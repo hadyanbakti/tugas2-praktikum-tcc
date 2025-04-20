@@ -1,5 +1,5 @@
 runtime: nodejs20
-service: notes-frontend-hadyan  # ganti nama service kalau mau
+service: notes-frontend-hadyan
 instance_class: F1
 
 handlers:

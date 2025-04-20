@@ -24,10 +24,19 @@ steps:
         "5000",
         "--region",
         "us-central1",
-        "--allow-unauthenticated",
+        "--allow-unauthenticated"
       ]
 
-# Log hanya akan disimpan di Google Cloud Logging
-# Log tidak akan disimpan di Google Cloud Storage (butuh hak akses).
+  # 4. Tambahkan policy agar publik bisa akses
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        gcloud beta run services add-iam-policy-binding notes-be-hadyan \
+          --member="allUsers" \
+          --role="roles/run.invoker" \
+          --region=us-central1
+
 options:
   logging: CLOUD_LOGGING_ONLY
